@@ -12,6 +12,7 @@
   "devDependencies": {
     "@commitlint/cli": "^9.0.1",
     "@commitlint/config-conventional": "^9.0.1",
+    "@types/styled-components": "^5.1.3",
     "@typescript-eslint/eslint-plugin": "^3.5.0",
     "@typescript-eslint/parser": "^3.5.0",
     "commitizen": "^4.2.1",
@@ -39,5 +40,9 @@
     "cz-customizable": {
       "config": "config/path/to/my/config.js"
     }
+  },
+  "dependencies": {
+    "react-icons": "^3.11.0",
+    "styled-components": "^5.2.0"
   }
 }
