@@ -1,7 +1,9 @@
 import React from 'react';
-import ChatBot from '../../components/Chatbot'
+
+import Description from '../../components/Description';
+
 const Home: React.FC = () => {
-  return <ChatBot />;
+  return <Description />;
 }
 
 export default Home;
