@@ -1,0 +1,43 @@
+{
+  "name": "teto-solution",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/GledsonS831/commits-for-projects",
+  "author": "GledsonS831 <glegogle84@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "commit": "./node_modules/cz-customizable/standalone.js",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "@typescript-eslint/eslint-plugin": "^3.5.0",
+    "@typescript-eslint/parser": "^3.5.0",
+    "commitizen": "^4.2.1",
+    "cz-conventional-changelog": "3.2.0",
+    "cz-customizable": "^6.3.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "git add"
+    ]
+  },
+  "eslint-config": "./node_modules/.bin/eslint --init",
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "config/path/to/my/config.js"
+    }
+  }
+}
