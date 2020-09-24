@@ -1,9 +1,21 @@
 import { createGlobalStyle } from 'styled-components';
 
+import { opacify } from 'polished';
+
 export default createGlobalStyle`
   ::-webkit-scrollbar {
     width: 5px;
     height: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => opacify(-0.2, theme.main)};
+    border-radius: 2.5px;
+    transition: 0.2s;
+
+    &:hover {
+      background: ${({ theme }) => theme.main};
+    }
   }
 
   * {
@@ -27,11 +39,21 @@ export default createGlobalStyle`
     font-weight: 400;
 
     background-color: ${({ theme }) => theme.background};
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.main};
 
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+  }
+
+  #root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    min-height: 100vh;
+    padding: 32px;
   }
 
   a,
