@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
-import { TweenLite, Power3 } from "gsap";
+import { TweenMax, Power3 } from "gsap";
 
 import ExternalLink from "../ExternalLink";
 
@@ -41,21 +41,21 @@ const Description: React.FC = () => {
   const socialIconsRef = useRef(null);
 
   useEffect(() => {
-    TweenLite.from(titleRef.current, 1, {
+    TweenMax.from(titleRef.current, 1, {
       y: 40,
       opacity: 0,
       ease: Power3.easeOut,
       delay: 0.2,
     });
 
-    TweenLite.from(subTitleRef.current, 1, {
+    TweenMax.from(subTitleRef.current, 1, {
       y: 40,
       opacity: 0,
       ease: Power3.easeOut,
       delay: 0.5,
     });
 
-    TweenLite.from(socialIconsRef.current, 1, {
+    TweenMax.from(socialIconsRef.current, 1, {
       y: 40,
       opacity: 0,
       ease: Power3.easeOut,

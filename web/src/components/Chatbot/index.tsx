@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import ReactSimpleChatBot from "react-simple-chatbot";
 
-import { TweenLite, Power3 } from "gsap";
+import { TweenMax, Power3 } from "gsap";
 
 import { Steps } from "./steps";
 
@@ -14,7 +14,7 @@ const Chatbot: React.FC = () => {
 
   useEffect(() => {
     if (containerRef.current) {
-      TweenLite.from(containerRef.current, 1.4, {
+      TweenMax.from(containerRef.current, 1.4, {
         x: 80,
         opacity: 0,
         delay: 1,
