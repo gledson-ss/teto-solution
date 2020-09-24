@@ -30,10 +30,32 @@ export const Container = styled.section`
   ul {
     display: flex;
     align-items: center;
-    margin-top: 8px;
+    margin-top: 12px;
 
     li + li {
       margin-left: 24px;
+    }
+  }
+
+  > a,
+  li {
+    transition: transform 0.2s ease-out;
+    transform: translateZ(0);
+
+    &:active {
+      transform: scale(0.95) translateZ(0);
+    }
+  }
+
+  > a {
+    &:hover {
+      transform: scale(1.06) translateZ(0);
+    }
+  }
+
+  li {
+    &:hover {
+      transform: scale(1.2) translateZ(0);
     }
   }
 `;
