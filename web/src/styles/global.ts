@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
-import { opacify } from 'polished';
+import { opacify } from "polished";
 
 export default createGlobalStyle`
   ::-webkit-scrollbar {
