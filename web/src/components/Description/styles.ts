@@ -6,14 +6,17 @@ export const Container = styled.section`
   align-items: center;
 
   text-align: center;
+  max-width: 450px;
 
   img {
     height: 180px;
     margin-bottom: 32px;
+    margin-top: -16px;
   }
 
   h2 {
     font-weight: 400;
+    margin-top: 48px;
   }
 
   div {
