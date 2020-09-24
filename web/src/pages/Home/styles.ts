@@ -16,9 +16,3 @@ export const Container = styled.main`
     flex: 1;
   }
 `;
-
-export const ChatPlaceholder = styled.section`
-  background: #333;
-  height: 50vh;
-  width: 40vw;
-`;

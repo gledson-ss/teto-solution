@@ -1,23 +1,15 @@
 import React from 'react';
 
 import Description from '../../components/Description';
+import Chatbot from '../../components/Chatbot';
 
-import { Container, ChatPlaceholder } from './styles';
-
-
-type Paypal = Window & typeof globalThis & {
-  paypal: Object;
-}
+import { Container } from './styles';
 
 const Home: React.FC = () => {
-  const {} = window;
-
   return (
     <Container>
       <Description />
-      <ChatPlaceholder>
-        <span></span>
-      </ChatPlaceholder>
+      <Chatbot />
     </Container>
   );
 }
