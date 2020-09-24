@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import ReactSimpleChatBot from 'react-simple-chatbot';
 import PaypalButton from '../PaypalButton'
-import Style from './styles'
+import Style, {Header} from './styles'
 import { Donation } from '../PaypalButton/donation'
-
+import ChatbotHeader from '../ChatbotHeader'
+import { useChatbotProps } from '../../hooks/ChatbotProvider'
 interface messageProps{
   previousValue: string
 }
@@ -11,7 +12,7 @@ interface messageProps{
 const Steps = [
   {
     id: '1',
-    message: 'hello',
+    message: 'ola',
     trigger: '2'
   },
   {
@@ -21,24 +22,42 @@ const Steps = [
   },
   {
     id: '3',
-    message: (value: messageProps) =>{
-      return value.previousValue
-    },
-    end: true
+    message: 'nao porra',
+    trigger: '4'
+  },
+  {
+    id: '4',
+    message: 'aaaaaaaa'
   }
 ]
 
 const Chatbot: React.FC = () => {
-  const [hasVoice] = useState<Boolean>(false);
+  const {hasVoice} = useChatbotProps();
 
-  return (
-    <ReactSimpleChatBot
-      headerTitle="Organização TETO"
-      speechSynthesis={{ enable: hasVoice, lang: 'pt' }}
-      style={Style}
-      steps={Steps}
-    />
-  );
+  if(hasVoice){
+    return (
+      <ReactSimpleChatBot
+        headerComponent={<ChatbotHeader />}
+        headerTitle="Organização TETO"
+        speechSynthesis={{ enable: true, lang: 'pt' }}
+        style={Style}
+        steps={Steps}
+      />
+    )
+  }
+
+  else{
+    return (
+      <ReactSimpleChatBot
+        headerComponent={<ChatbotHeader />}
+        headerTitle="Organização TETO"
+        speechSynthesis={{ enable: false, lang: 'pt' }}
+        style={Style}
+        steps={Steps}
+      />
+    )
+  }
+
 };
 
 export default Chatbot;
