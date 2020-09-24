@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+
+import { TweenLite, Power3 } from "gsap";
 
 import ExternalLink from "../ExternalLink";
 
@@ -34,16 +36,43 @@ const DATA = {
 };
 
 const Description: React.FC = () => {
+  const titleRef = useRef(null);
+  const subTitleRef = useRef(null);
+  const socialIconsRef = useRef(null);
+
+  useEffect(() => {
+    TweenLite.from(titleRef.current, 1, {
+      y: 40,
+      opacity: 0,
+      ease: Power3.easeOut,
+      delay: 0.2,
+    });
+
+    TweenLite.from(subTitleRef.current, 1, {
+      y: 40,
+      opacity: 0,
+      ease: Power3.easeOut,
+      delay: 0.5,
+    });
+
+    TweenLite.from(socialIconsRef.current, 1, {
+      y: 40,
+      opacity: 0,
+      ease: Power3.easeOut,
+      delay: 0.8,
+    });
+  }, []);
+
   return (
     <S.Container>
       <ExternalLink href="https://www.techo.org/brasil/">
-        <img src={tetoLogoImg} alt="Techo logo" />
+        <img src={tetoLogoImg} alt="TETO logo" />
       </ExternalLink>
 
-      <h1>{DATA.title}</h1>
-      <h2>{DATA.subTitle}</h2>
+      <h1 ref={titleRef}>{DATA.title}</h1>
+      <h2 ref={subTitleRef}>{DATA.subTitle}</h2>
 
-      <div>
+      <div ref={socialIconsRef}>
         <p>{DATA.socalDescription}</p>
         <ul>
           {DATA.socialMedia.map(({ name, link, Icon }) => (

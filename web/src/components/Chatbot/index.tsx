@@ -14,10 +14,10 @@ const Chatbot: React.FC = () => {
 
   useEffect(() => {
     if (containerRef.current) {
-      TweenLite.from(containerRef.current, 1.2, {
-        x: 100,
+      TweenLite.from(containerRef.current, 1.4, {
+        x: 80,
         opacity: 0,
-        delay: 0.5,
+        delay: 1,
         ease: Power3.easeOut,
       });
     }
