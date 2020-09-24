@@ -14,7 +14,7 @@ const Home: React.FC = () => {
   }
   else{
     return (
-      <h1>ddddd</h1>
+      <Chatbot has={false}/>
     )
   }
 
