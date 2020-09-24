@@ -13,8 +13,4 @@ export const Container = styled.main`
   section:first-of-type {
     margin-right: 32px;
   }
-
-  section {
-    flex: 1;
-  }
 `;
