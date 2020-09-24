@@ -1,11 +1,4 @@
-import React, { useState } from 'react';
-import ReactSimpleChatBot from 'react-simple-chatbot';
-
-const style = {
-  background: '#CCE5FF'
-};
-
-const steps = [
+export default [
   {
     id: 'welcome',
     message: 'Olá, seja muito bem vindo a Organização TETO',
@@ -103,18 +96,3 @@ const steps = [
     message: 'agradeçemos sua visita, volte sempre!!'
   }
 ];
-
-const Chatbot: React.FC = () => {
-  const [hasVoice] = useState<Boolean>(false);
-
-  return (
-    <ReactSimpleChatBot
-      headerTitle="Organização TETO"
-      speechSynthesis={{ enable: hasVoice, lang: 'pt' }}
-      style={style}
-      steps={steps}
-    />
-  );
-};
-
-export default Chatbot;
