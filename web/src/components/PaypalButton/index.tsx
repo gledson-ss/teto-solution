@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState, useRef } from "react";
 
-declare var window: Window & typeof globalThis & { paypal: any };
+declare let window: Window & typeof globalThis & { paypal: any };
 
 export interface DonationProps {
   donation: {
@@ -27,7 +28,7 @@ const Donation: React.FC<DonationProps> = ({ donation }) => {
   useEffect(() => {
     window.paypal
       .Buttons({
-        createOrder: (data: any, actions: any) => {
+        createOrder: (_: any, actions: any) => {
           return actions.order.create({
             purchase_units: [
               {
@@ -40,14 +41,15 @@ const Donation: React.FC<DonationProps> = ({ donation }) => {
             ],
           });
         },
-        onApprove: async (data: any, actions: any) => {
+        onApprove: async (_: any, actions: any) => {
           const order = await actions.order.capture();
           setPaid(true);
           console.log(order);
         },
-        onError: (error: boolean) => {
-          setError(error);
-          console.error(error);
+        onError: (err: boolean) => {
+          console.error(err);
+
+          setError(err);
         },
       })
       .render(paypalRef.current);
@@ -66,7 +68,7 @@ const Donation: React.FC<DonationProps> = ({ donation }) => {
   // Default Render
   return (
     <div>
-      <h4>${donation.payment.value} /-</h4>
+      <h4>{`${donation.payment.value} /- `}</h4>
       <div ref={paypalRef} />
     </div>
   );

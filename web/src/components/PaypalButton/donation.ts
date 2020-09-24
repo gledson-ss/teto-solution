@@ -4,10 +4,10 @@ export const Donation = {
     name: "Felipe",
     email: "felipeffbs3x@gmail.com",
     number: "string",
-    birthday: "string"
+    birthday: "string",
   },
   payment: {
     cpf: "10026736403",
-    value: 200
-  }
+    value: 200,
+  },
 };
