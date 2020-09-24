@@ -2,14 +2,14 @@ import React, { useContext, SetStateAction, Dispatch } from "react";
 import { createContext, useState } from "react";
 
 interface contextProps{
-  hasVoice: Boolean;
-  setHasVoice: Dispatch<SetStateAction<Boolean>>;
+  hasVoice: boolean;
+  setHasVoice: Dispatch<SetStateAction<boolean>>;
 }
 
 const DataProvider = createContext({} as contextProps);
 
 const ChatbotProvider = ({children}: any) =>{
-  const [hasVoice, setHasVoice] = useState<Boolean>(true);
+  const [hasVoice, setHasVoice] = useState<boolean>(true);
 
   return (
     <DataProvider.Provider value={{hasVoice, setHasVoice}}>
@@ -20,7 +20,6 @@ const ChatbotProvider = ({children}: any) =>{
 
 function useChatbotProps(){
   const chatbotContext = useContext(DataProvider);
-
   return chatbotContext;
 }
 

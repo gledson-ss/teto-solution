@@ -4,15 +4,15 @@ import PaypalButton from '../PaypalButton'
 import Style, {Header} from './styles'
 import { Donation } from '../PaypalButton/donation'
 import ChatbotHeader from '../ChatbotHeader'
-import { useChatbotProps } from '../../hooks/ChatbotProvider'
-interface messageProps{
-  previousValue: string
+
+interface Props{
+  has: boolean
 }
 
 const Steps = [
   {
     id: '1',
-    message: 'ola',
+    message: 'um',
     trigger: '2'
   },
   {
@@ -22,42 +22,30 @@ const Steps = [
   },
   {
     id: '3',
-    message: 'nao porra',
+    message: 'dois',
     trigger: '4'
   },
   {
     id: '4',
-    message: 'aaaaaaaa'
+    user: true,
+    trigger: '5'
+  },
+  {
+    id: '5',
+    message: 'tres'
   }
 ]
 
-const Chatbot: React.FC = () => {
-  const {hasVoice} = useChatbotProps();
-
-  if(hasVoice){
-    return (
-      <ReactSimpleChatBot
-        headerComponent={<ChatbotHeader />}
-        headerTitle="Organização TETO"
-        speechSynthesis={{ enable: true, lang: 'pt' }}
-        style={Style}
-        steps={Steps}
-      />
-    )
-  }
-
-  else{
-    return (
-      <ReactSimpleChatBot
-        headerComponent={<ChatbotHeader />}
-        headerTitle="Organização TETO"
-        speechSynthesis={{ enable: false, lang: 'pt' }}
-        style={Style}
-        steps={Steps}
-      />
-    )
-  }
-
+const Chatbot: React.FC<Props> = ({has}) => {
+  return (
+    <ReactSimpleChatBot
+      headerComponent={<ChatbotHeader />}
+      headerTitle="Organização TETO"
+      speechSynthesis={{ enable: has, lang: 'pt' }}
+      style={Style}
+      steps={Steps}
+    />
+  )
 };
 
 export default Chatbot;

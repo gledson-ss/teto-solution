@@ -4,11 +4,11 @@ import { Container } from './styles';
 import {useChatbotProps} from '../../hooks/ChatbotProvider'
 
 const ChatbotAudio: React.FC = () => {
-  const {hasVoice,setHasVoice} = useChatbotProps();
+  const {hasVoice, setHasVoice} = useChatbotProps();
   return (
     <Container onClick={() => {
-      console.log(hasVoice);
       setHasVoice(!hasVoice);
+      console.log(hasVoice)
     }}>
       <AiFillSound size={20}/>
     </Container>
