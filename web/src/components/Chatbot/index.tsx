@@ -4,102 +4,27 @@ import PaypalButton from '../PaypalButton'
 import Style from './styles'
 import { Donation } from '../PaypalButton/donation'
 
+interface messageProps{
+  previousValue: string
+}
+
 const Steps = [
   {
-    id: 'welcome',
-    message: 'Olá, seja muito bem vindo a Organização TETO',
-    trigger: 'help'
+    id: '1',
+    message: 'hello',
+    trigger: '2'
   },
   {
-    id: 'help',
-    message: 'Ajude-nos com alguma doação :)',
-    trigger: 'options'
+    id: '2',
+    user: true,
+    trigger: '3'
   },
   {
-    id: 'options',
-    options: [
-      {
-        value: 1,
-        label: 'Saber mais sobre a TETO',
-        trigger: 'description_options'
-      },
-      {
-        value: 2,
-        label: 'Quero fazer uma doação!',
-        trigger: 'donation'
-      },
-      {
-        value: 3,
-        label: 'Quero encerrar a conversa, obrigado',
-        trigger: 'end'
-      }
-    ]
-  },
-  {
-    id: 'description_options',
-    options: [
-      {
-        value: 1,
-        label: 'SEJA UM AMIGO DA TETO',
-        trigger: 'description_options_1'
-      },
-      {
-        value: 2,
-        label: 'POR QUE DOAR?',
-        trigger: 'description_options_2'
-      },
-      {
-        value: 3,
-        label: 'SOBRE A TETO',
-        trigger: 'description_options_3'
-      }
-    ]
-  },
-  {
-    id: 'description_options_1',
-    message:
-      'Nós trabalhamos pela superação da pobreza nas favelas mais precárias do país.',
-    trigger: 'description_link'
-  },
-  {
-    id: 'description_options_2',
-    message:
-      'Doando um pequeno valor a cada mês, você ajuda a atuação da TETO em 6 estados brasileiros.',
-    trigger: 'description_link'
-  },
-  {
-    id: 'description_options_3',
-    message:
-      'Através da mobilização de moradores e jovens voluntários, construímos moradias de emergência e soluções de infraestrutura.',
-    trigger: 'description_link'
-  },
-  {
-    id: 'description_link',
-    options: [
-      {
-        value: 1,
-        label: 'Acesse o link para mais informações: [link]',
-        trigger: 'options'
-      },
-      {
-        value: 2,
-        label: 'Quero fazer uma doação agora!',
-        trigger: 'donation'
-      },
-      {
-        value: 3,
-        label: 'Quero encerrar a conversa, obrigado',
-        trigger: 'end'
-      }
-    ]
-  },
-  {
-    id: 'donation',
-    component: <PaypalButton donation={Donation}/>
-  },
-  {
-    id: 'end',
-    message: 'agradeçemos sua visita, volte sempre!!'
+    id: '3',
+    message: (value: messageProps) =>{
+      return value.previousValue
+    },
+    end: true
   }
 ]
 
