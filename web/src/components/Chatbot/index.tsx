@@ -8,13 +8,9 @@ const Steps = [
   {
     id: 'welcome',
     message: 'Olá, seja muito bem vindo a Organização TETO',
-    trigger: 'help'
-  },
-  {
-    id: 'help',
-    message: 'Ajude-nos com alguma doação :)',
     trigger: 'options'
   },
+
   {
     id: 'options',
     options: [
