@@ -70,7 +70,7 @@ const Donation: React.FC<DonationProps> = ({ value }) => {
   // Default Render
   return (
     <div>
-      <h4>{`R$ ${42}`}</h4>
+      <h4>{`R$ ${value}`}</h4>
       <div ref={paypalRef} />
       {/* <ShowCupomModal isOpen={isOpen} onClose={handleClose} /> */}
     </div>

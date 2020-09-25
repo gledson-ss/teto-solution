@@ -109,7 +109,7 @@ export default [
     id: "recurrentDonation3",
     component: (
       <ExternalLink href="https://doe.teto.org.br/doe/single_step">
-        Link chavoso
+        Acesse o link para fazer uma doação recorrente
       </ExternalLink>
     ),
     trigger: "end",
@@ -165,12 +165,37 @@ export default [
   {
     // TODO Adicionar ao prop do paypal o valor a ser doado
     id: "donationValue",
-    user: true,
-    placeholder: "Digite o valor que deseja doar",
-    trigger: "paypalComponent",
+    options: [
+      {
+        value: 1,
+        label: "Quero doar R$35,00 para ajudar milhões de latino-americanos",
+        trigger: "donation35",
+      },
+      {
+        value: 1,
+        label:
+          "Quero doar R$50,00 para ajudar construir casas de milhares de famílias",
+        trigger: "donation50",
+      },
+      {
+        value: 1,
+        label: "Quero doar R$100,00 para mudar o futuro do mundo",
+        trigger: "donation100",
+      },
+    ],
   },
   {
-    id: "paypalComponent",
+    id: "donation100",
+    component: <PaypalButton value={100} />,
+    trigger: "thanks",
+  },
+  {
+    id: "donation35",
+    component: <PaypalButton value={35} />,
+    trigger: "thanks",
+  },
+  {
+    id: "donation50",
     component: <PaypalButton value={50} />,
     trigger: "thanks",
   },
