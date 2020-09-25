@@ -11,9 +11,6 @@ const ChatbotHeader: React.FC = () => {
         </Title>
       </TitleContainer>
       
-      <ButtonContainer>
-        <ChatbotAudio />
-      </ButtonContainer>
     </Container>
   )
 }

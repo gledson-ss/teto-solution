@@ -4,19 +4,19 @@ import Description from "../../components/Description";
 import Chatbot from "../../components/Chatbot";
 import { Container} from "./styles";
 import { useChatbotProps } from '../../hooks/ChatbotProvider'
+import ChatbotAudio from "../../components/ChatbotAudio";
 const Home: React.FC = () => {
   const { hasVoice } = useChatbotProps();
 
-  if(hasVoice){
-    return (
-      <Chatbot has={true}/>
-    )
-  }
-  else{
-    return (
-      <Chatbot has={false}/>
-    )
-  }
+  return (
+    <Container>
+      <Description />
+      <ChatbotAudio />
+      {
+        hasVoice ? <Chatbot has={true}/>: <Chatbot has={false} />
+      }
+    </Container>
+  );
 
 };
 

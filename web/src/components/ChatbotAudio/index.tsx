@@ -8,7 +8,7 @@ const ChatbotAudio: React.FC = () => {
   return (
     <Container onClick={() => {
       setHasVoice(!hasVoice);
-      console.log(hasVoice)
+      console.log(!hasVoice)
     }}>
       <AiFillSound size={20}/>
     </Container>
