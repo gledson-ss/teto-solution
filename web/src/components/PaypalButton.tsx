@@ -1,20 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState, useRef } from "react";
 
-import { useDonation } from "../hooks/useDonation";
-
 // import ShowCupomModal from "./ShowCupomModal";
 
 declare let window: Window & typeof globalThis & { paypal: any };
 
-const Donation: React.FC = () => {
+interface DonationProps {
+  value: number;
+}
+
+const Donation: React.FC<DonationProps> = ({ value }) => {
   const [paid, setPaid] = useState(false);
   const [error, setError] = useState(false);
   // const [isOpen, setOpen] = useState(true);
 
   const paypalRef = useRef(null);
-
-  const { options } = useDonation();
 
   // function handleClose(): void {
   //   setOpen(false);
@@ -27,37 +27,35 @@ const Donation: React.FC = () => {
   // }, [paid]);
 
   useEffect(() => {
-    if (options) {
-      window.paypal
-        .Buttons({
-          createOrder: (_: any, actions: any) => {
-            return actions.order.create({
-              purchase_units: [
-                {
-                  description: "Doação para ajudar um futuro melhor",
-                  amount: {
-                    currency_code: "USD",
-                    value: options?.value,
-                  },
+    window.paypal
+      .Buttons({
+        createOrder: (_: any, actions: any) => {
+          return actions.order.create({
+            purchase_units: [
+              {
+                description: "Doação para ajudar um futuro melhor",
+                amount: {
+                  currency_code: "USD",
+                  value,
                 },
-              ],
-            });
-          },
-          onApprove: async (_: any, actions: any) => {
-            const order = await actions.order.capture();
-            setPaid(true);
+              },
+            ],
+          });
+        },
+        onApprove: async (_: any, actions: any) => {
+          const order = await actions.order.capture();
+          setPaid(true);
 
-            console.log(order);
-          },
-          onError: (err: boolean) => {
-            console.warn(err);
+          console.log(order);
+        },
+        onError: (err: boolean) => {
+          console.warn(err);
 
-            setError(err);
-          },
-        })
-        .render(paypalRef.current);
-    }
-  }, [options]);
+          setError(err);
+        },
+      })
+      .render(paypalRef.current);
+  }, [value]);
 
   // If the payment has been made
   if (paid) {

@@ -1,7 +1,11 @@
 import React from "react";
 
-import PaypalButton from "../PaypalButton";
 import ExternalLink from "../ExternalLink";
+import PaypalButton from "../PaypalButton";
+
+interface MessageProps {
+  previousValue: string | undefined;
+}
 
 export default [
   {
@@ -167,7 +171,7 @@ export default [
   },
   {
     id: "paypalComponent",
-    component: <PaypalButton />,
+    component: <PaypalButton value={50} />,
     trigger: "thanks",
   },
   {

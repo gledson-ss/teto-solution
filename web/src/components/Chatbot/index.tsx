@@ -3,8 +3,6 @@ import ReactSimpleChatBot from "react-simple-chatbot";
 
 import { TweenMax, Power3 } from "gsap";
 
-import { useDonation } from "../../hooks/useDonation";
-
 import steps from "./steps";
 
 import * as S from "./styles";
@@ -12,8 +10,6 @@ import * as S from "./styles";
 const Chatbot: React.FC = () => {
   const [hasVoice] = useState<boolean>(false);
   const containerRef = useRef(null);
-
-  const { setOptions } = useDonation();
 
   useEffect(() => {
     if (containerRef.current) {
