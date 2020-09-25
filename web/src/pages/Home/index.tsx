@@ -13,7 +13,7 @@ const Home: React.FC = () => {
       <Description />
       <ChatbotAudio />
       {
-        hasVoice ? <Chatbot has={true}/>: <Chatbot has={false} />
+        hasVoice ? <Chatbot has={true}/>: (<> <h1>seera</h1> <Chatbot has={false}/> </>)
       }
     </Container>
   );

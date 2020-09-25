@@ -38,10 +38,19 @@ const Steps = [
 
 const Chatbot: React.FC<Props> = ({has}) => {
   return (
+      has ? <ReactSimpleChatBot
+      headerComponent={<ChatbotHeader />}
+      headerTitle="Organização TETO"
+      speechSynthesis={{ enable: true
+      , lang: 'pt' }}
+      style={Style}
+      steps={Steps}
+    /> :
     <ReactSimpleChatBot
       headerComponent={<ChatbotHeader />}
       headerTitle="Organização TETO"
-      speechSynthesis={{ enable: has, lang: 'pt' }}
+      speechSynthesis={{ enable: false
+      , lang: 'pt' }}
       style={Style}
       steps={Steps}
     />
