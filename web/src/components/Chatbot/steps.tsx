@@ -33,7 +33,7 @@ export const Steps = [
       },
     ],
   },
-
+  // TODO diminuir os textos
   {
     id: "aboutTeto",
     message:
@@ -85,22 +85,48 @@ export const Steps = [
         trigger: "donation",
       },
       {
-        // TODO: Adicionar o texto
         value: 3,
         label: "Quero fazer uma doação recorrente",
-        // TODO Adicionar a mensagem de doação recorrente
-        trigger: "end",
+        trigger: "recurrentDonation",
       },
     ],
   },
   {
-    // TODO diminuir o texto e perguntar se quer doar
+    id: "recurrentDonation",
+    message:
+      "Infelizmente ainda não posso gerar um pagamento para que você possa nos ajudar muito mais através de doações recorrentes. Felizmente tem outras alternativas.",
+    trigger: "recurrentDonation2",
+  },
+  {
+    id: "recurrentDonation2",
+    message:
+      "Acesse esse link e você poderá fazer uma doação recorrente\n\nhttps://doe.teto.org.br/doe/single_step",
+    trigger: "end",
+  },
+  {
+    // TODO diminuir o texto
     id: "whyDonate",
     message:
       "Nas favelas em que a TETO Brasil atua, o tamanho médio de um barraco é de 27 m² e, em 31% deles, vivem pelo menos quatro pessoas.* Mas você pode nos ajudar a transformar essa realidade! Com o apoio de nossos doadores, apenas no Brasil já construímos mais de 4 mil moradias de emergência, concluímos 50 projetos comunitários e mobilizamos mais de 70 mil voluntários**. Com a sua doação, podemos fazer ainda mais.",
-    trigger: "donation",
+    trigger: "askDonation",
   },
-
+  {
+    id: "askDonation",
+    options: [
+      {
+        value: 1,
+        label: "Ok, vou doar e tornar o mundo melhor para todos!",
+        trigger: "donation",
+      },
+      { value: 2, label: "Não quero doar.", trigger: "noDonation" },
+    ],
+  },
+  {
+    id: "noDonation",
+    message:
+      "Tudo bem se não quiser doar. Mas sempre pense ajudar o proximo. Nós podemos fazer um futuro melhor para todos com muito pouco",
+    trigger: "end",
+  },
   {
     id: "donation",
     message:
@@ -120,14 +146,20 @@ export const Steps = [
     trigger: "paypalComponent",
   },
   {
-    // todo adicionar o agradecimento pela doação
     id: "paypalComponent",
     component: <PaypalButton donation={Donation} />,
     // trigger: "thanks"
+    trigger: "thanks",
+  },
+  {
+    id: "thanks",
+    message:
+      "Muito obrigado pela sua doação. Você está tornando o mundo um lugar muito melhor :)",
     trigger: "end",
   },
   {
     id: "end",
     message: "agradeçemos sua visita, volte sempre!!",
+    end: true,
   },
 ];
