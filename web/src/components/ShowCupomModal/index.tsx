@@ -31,7 +31,7 @@ const ShowCupomModal: React.FC<ModalProps> = ({
         <h1>Obrigado pela sua doação!!</h1>
         <p>
           {`Estamos tão felizes com isso, que decidimos da-lo um pequeno presente,
-          um cupom de desconto de ${discount} na loja da Dream Team. Espero que goste!
+          um cupom de desconto de R$ ${discount},00 reais na loja da Dream Team. Espero que goste!
           :)`}
         </p>
         <p>{`Seu cupom: ${cupom}`}</p>

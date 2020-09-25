@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState, useRef } from "react";
 
-// import ShowCupomModal from "./ShowCupomModal";
+import ShowCupomModal from "./ShowCupomModal";
 
 declare let window: Window & typeof globalThis & { paypal: any };
 
@@ -12,19 +12,19 @@ interface DonationProps {
 const Donation: React.FC<DonationProps> = ({ value }) => {
   const [paid, setPaid] = useState(false);
   const [error, setError] = useState(false);
-  // const [isOpen, setOpen] = useState(true);
+  const [isOpen, setOpen] = useState(true);
 
   const paypalRef = useRef(null);
 
-  // function handleClose(): void {
-  //   setOpen(false);
-  // }
+  function handleClose(): void {
+    setOpen(false);
+  }
 
-  // useEffect(() => {
-  //   if (paid) {
-  //     setOpen(true);
-  //   }
-  // }, [paid]);
+  useEffect(() => {
+    if (paid) {
+      setOpen(true);
+    }
+  }, [paid]);
 
   useEffect(() => {
     window.paypal
@@ -72,7 +72,12 @@ const Donation: React.FC<DonationProps> = ({ value }) => {
     <div>
       <h4>{`R$ ${value}`}</h4>
       <div ref={paypalRef} />
-      {/* <ShowCupomModal isOpen={isOpen} onClose={handleClose} /> */}
+      <ShowCupomModal
+        isOpen={isOpen}
+        onClose={handleClose}
+        cupom={`TETO${value}`}
+        discount={`${value}`}
+      />
     </div>
   );
 };
