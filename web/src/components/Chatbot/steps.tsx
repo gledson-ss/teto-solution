@@ -172,13 +172,13 @@ export default [
         trigger: "donation35",
       },
       {
-        value: 1,
+        value: 2,
         label:
           "Quero doar R$50,00 para ajudar construir casas de milhares de famílias",
         trigger: "donation50",
       },
       {
-        value: 1,
+        value: 3,
         label: "Quero doar R$100,00 para mudar o futuro do mundo",
         trigger: "donation100",
       },
