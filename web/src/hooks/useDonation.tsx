@@ -1,17 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 
 interface DonationOptions {
-  donationType: string;
-  donor: {
-    name: string;
-    email: string;
-    number: string;
-    birthday: string;
-  };
-  payment: {
-    cpf: string;
-    value: number;
-  };
+  value: number;
 }
 
 interface DonationData {

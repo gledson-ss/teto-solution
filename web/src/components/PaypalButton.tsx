@@ -3,46 +3,61 @@ import React, { useEffect, useState, useRef } from "react";
 
 import { useDonation } from "../hooks/useDonation";
 
+// import ShowCupomModal from "./ShowCupomModal";
+
 declare let window: Window & typeof globalThis & { paypal: any };
 
 const Donation: React.FC = () => {
   const [paid, setPaid] = useState(false);
   const [error, setError] = useState(false);
-
-  const { options } = useDonation();
+  // const [isOpen, setOpen] = useState(true);
 
   const paypalRef = useRef(null);
 
+  const { options } = useDonation();
+
+  // function handleClose(): void {
+  //   setOpen(false);
+  // }
+
+  // useEffect(() => {
+  //   if (paid) {
+  //     setOpen(true);
+  //   }
+  // }, [paid]);
+
   useEffect(() => {
-    window.paypal
-      .Buttons({
-        createOrder: (_: any, actions: any) => {
-          return actions.order.create({
-            purchase_units: [
-              {
-                description: "Doação para ajudar um futuro melhor",
-                amount: {
-                  currency_code: "USD",
-                  value: 42.0,
+    if (options) {
+      window.paypal
+        .Buttons({
+          createOrder: (_: any, actions: any) => {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  description: "Doação para ajudar um futuro melhor",
+                  amount: {
+                    currency_code: "USD",
+                    value: options?.value,
+                  },
                 },
-              },
-            ],
-          });
-        },
-        onApprove: async (_: any, actions: any) => {
-          const order = await actions.order.capture();
-          setPaid(true);
+              ],
+            });
+          },
+          onApprove: async (_: any, actions: any) => {
+            const order = await actions.order.capture();
+            setPaid(true);
 
-          console.log(order);
-        },
-        onError: (err: boolean) => {
-          console.warn(err);
+            console.log(order);
+          },
+          onError: (err: boolean) => {
+            console.warn(err);
 
-          setError(err);
-        },
-      })
-      .render(paypalRef.current);
-  }, []);
+            setError(err);
+          },
+        })
+        .render(paypalRef.current);
+    }
+  }, [options]);
 
   // If the payment has been made
   if (paid) {
@@ -59,6 +74,7 @@ const Donation: React.FC = () => {
     <div>
       <h4>{`R$ ${42}`}</h4>
       <div ref={paypalRef} />
+      {/* <ShowCupomModal isOpen={isOpen} onClose={handleClose} /> */}
     </div>
   );
 };
