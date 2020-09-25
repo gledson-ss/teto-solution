@@ -12,19 +12,12 @@ interface DonationProps {
 const Donation: React.FC<DonationProps> = ({ value }) => {
   const [paid, setPaid] = useState(false);
   const [error, setError] = useState(false);
-  const [isOpen, setOpen] = useState(true);
 
   const paypalRef = useRef(null);
 
   function handleClose(): void {
-    setOpen(false);
+    setPaid(false);
   }
-
-  useEffect(() => {
-    if (paid) {
-      setOpen(true);
-    }
-  }, [paid]);
 
   useEffect(() => {
     window.paypal
@@ -35,7 +28,7 @@ const Donation: React.FC<DonationProps> = ({ value }) => {
               {
                 description: "Doação para ajudar um futuro melhor",
                 amount: {
-                  currency_code: "USD",
+                  currency_code: "BRL",
                   value,
                 },
               },
@@ -45,7 +38,6 @@ const Donation: React.FC<DonationProps> = ({ value }) => {
         onApprove: async (_: any, actions: any) => {
           const order = await actions.order.capture();
           setPaid(true);
-
           console.log(order);
         },
         onError: (err: boolean) => {
@@ -57,11 +49,6 @@ const Donation: React.FC<DonationProps> = ({ value }) => {
       .render(paypalRef.current);
   }, [value]);
 
-  // If the payment has been made
-  if (paid) {
-    return <div>Payment successful.!</div>;
-  }
-
   // If any error occurs
   if (error) {
     return <div>Error Occurred in processing payment.! Please try again.</div>;
@@ -70,10 +57,9 @@ const Donation: React.FC<DonationProps> = ({ value }) => {
   // Default Render
   return (
     <div>
-      <h4>{`R$ ${value}`}</h4>
-      <div ref={paypalRef} />
+      {paid ? <div>Payment successful.!</div> : <div ref={paypalRef} />}
       <ShowCupomModal
-        isOpen={isOpen}
+        isOpen={paid}
         onClose={handleClose}
         cupom={`TETO${value}`}
         discount={`${value}`}

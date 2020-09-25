@@ -11,10 +11,10 @@ export const Container = styled(Modal)`
   left: 50%;
   transform: translate(-50%, -50%);
 
-  height: 50vh;
-  width: 50vw;
-  max-width: 800px;
-  max-height: 440px;
+  max-height: 50vh;
+  max-width: 50vw;
+  width: 100%;
+  height: 100%;
 
   padding: 24px;
   border-radius: 10px;
@@ -40,6 +40,14 @@ export const Container = styled(Modal)`
 
   p {
     color: ${({ theme }) => theme.dark};
+    font-size: 18px;
+  }
+
+  p:nth-of-type(2) {
+    color: ${({ theme }) => theme.main};
+    font-size: 28px;
+    margin: 32px 0;
+    text-align: center;
   }
 
   button {
