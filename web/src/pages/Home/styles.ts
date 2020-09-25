@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.main`
   display: flex;
@@ -12,9 +12,5 @@ export const Container = styled.main`
 
   section:first-of-type {
     margin-right: 32px;
-  }
-
-  section {
-    flex: 1;
   }
 `;

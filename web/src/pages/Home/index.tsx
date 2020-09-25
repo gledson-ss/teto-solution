@@ -1,19 +1,17 @@
 import React, { useEffect } from "react";
-
-import Description from "../../components/Description";
+import {useChatbotProps} from '../../hooks/ChatbotProvider'
 import Chatbot from "../../components/Chatbot";
-import { Container} from "./styles";
-import { useChatbotProps } from '../../hooks/ChatbotProvider'
-import ChatbotAudio from "../../components/ChatbotAudio";
+import Description from "../../components/Description";
+
+import { Container } from "./styles";
+
 const Home: React.FC = () => {
   const { hasVoice } = useChatbotProps();
 
   return (
     <Container>
       <Description />
-      {
-        hasVoice ? <Chatbot has={true}/>: (<> <></> <Chatbot has={false}/> </>)
-      }
+      <Chatbot />
     </Container>
   );
 

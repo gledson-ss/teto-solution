@@ -1,7 +1,12 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-export default {
-  background: '#CCE5FF'
+export const Container = styled.section`
+  display: flex;
+  justify-content: center;
+`;
+
+export const content = {
+  background: "#CCE5FF",
 };
 
 export const Header = styled.div`
