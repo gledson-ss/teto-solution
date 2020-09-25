@@ -14,37 +14,35 @@ const Donation: React.FC = () => {
   const paypalRef = useRef(null);
 
   useEffect(() => {
-    if (options) {
-      window.paypal
-        .Buttons({
-          createOrder: (_: any, actions: any) => {
-            return actions.order.create({
-              purchase_units: [
-                {
-                  description: options.donor.name,
-                  amount: {
-                    currency_code: "USD",
-                    value: options.payment.value,
-                  },
+    window.paypal
+      .Buttons({
+        createOrder: (_: any, actions: any) => {
+          return actions.order.create({
+            purchase_units: [
+              {
+                description: "Doação para ajudar um futuro melhor",
+                amount: {
+                  currency_code: "USD",
+                  value: 42.0,
                 },
-              ],
-            });
-          },
-          onApprove: async (_: any, actions: any) => {
-            const order = await actions.order.capture();
-            setPaid(true);
+              },
+            ],
+          });
+        },
+        onApprove: async (_: any, actions: any) => {
+          const order = await actions.order.capture();
+          setPaid(true);
 
-            console.log(order);
-          },
-          onError: (err: boolean) => {
-            console.warn(err);
+          console.log(order);
+        },
+        onError: (err: boolean) => {
+          console.warn(err);
 
-            setError(err);
-          },
-        })
-        .render(paypalRef.current);
-    }
-  }, [options]);
+          setError(err);
+        },
+      })
+      .render(paypalRef.current);
+  }, []);
 
   // If the payment has been made
   if (paid) {
@@ -59,7 +57,7 @@ const Donation: React.FC = () => {
   // Default Render
   return (
     <div>
-      <h4>{`R$ ${options?.payment.value}`}</h4>
+      <h4>{`R$ ${42}`}</h4>
       <div ref={paypalRef} />
     </div>
   );
