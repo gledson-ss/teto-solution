@@ -1,8 +1,9 @@
 import React from 'react';
-
-import { Container,Title,ButtonContainer, TitleContainer } from './styles';
+import { Container,Title,ButtonContainer, TitleContainer, WarningContainer, WarningText } from './styles';
+import {useChatbotProps} from '../../hooks/ChatbotProvider'
 import ChatbotAudio from '../ChatbotAudio'
 const ChatbotHeader: React.FC = () => {
+  const { hasVoice } = useChatbotProps();
   return (
     <Container>
       <TitleContainer>
@@ -10,8 +11,12 @@ const ChatbotHeader: React.FC = () => {
           Organização TETO
         </Title>
       </TitleContainer>
-      
       <ButtonContainer>
+        <WarningContainer>
+          <WarningText>
+            aaaaaa
+          </WarningText>
+        </WarningContainer>
         <ChatbotAudio />
       </ButtonContainer>
     </Container>

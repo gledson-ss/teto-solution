@@ -25,3 +25,12 @@ export const Title = styled.p`
   color: white;
   font-weight: bold;
 `
+export const WarningText = styled.p`
+  color: white;
+`
+
+export const WarningContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`
