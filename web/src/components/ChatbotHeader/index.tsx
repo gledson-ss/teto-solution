@@ -13,9 +13,12 @@ const ChatbotHeader: React.FC = () => {
       </TitleContainer>
       <ButtonContainer>
         <WarningContainer>
-          <WarningText>
-            aaaaaa
-          </WarningText>
+          {hasVoice ? <WarningText>
+                        Voz ativada
+                      </WarningText>
+                    :
+                    ''
+          }
         </WarningContainer>
         <ChatbotAudio />
       </ButtonContainer>

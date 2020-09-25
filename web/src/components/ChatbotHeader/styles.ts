@@ -27,6 +27,7 @@ export const Title = styled.p`
 `
 export const WarningText = styled.p`
   color: white;
+  padding-right: 10px;
 `
 
 export const WarningContainer = styled.div`
