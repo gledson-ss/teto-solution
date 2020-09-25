@@ -1,6 +1,7 @@
 import React from "react";
 
 import PaypalButton from "../PaypalButton";
+import ExternalLink from "../ExternalLink";
 
 export default [
   {
@@ -97,8 +98,16 @@ export default [
   },
   {
     id: "recurrentDonation2",
-    message:
-      "Acesse esse link e você poderá fazer uma doação recorrente\n\nhttps://doe.teto.org.br/doe/single_step",
+    message: "Acesse esse link e você poderá fazer uma doação recorrente",
+    trigger: "recurrentDonation3",
+  },
+  {
+    id: "recurrentDonation3",
+    component: (
+      <ExternalLink href="https://doe.teto.org.br/doe/single_step">
+        Link chavoso
+      </ExternalLink>
+    ),
     trigger: "end",
   },
   {
