@@ -14,6 +14,12 @@ const Donation: React.FC = () => {
   const paypalRef = useRef(null);
 
   useEffect(() => {
+    if (paid) {
+      // abrir modal
+    }
+  }, [paid]);
+
+  useEffect(() => {
     if (options) {
       window.paypal
         .Buttons({

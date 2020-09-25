@@ -19,13 +19,13 @@ const DATA = {
     {
       name: "Facebook",
       Icon: FaFacebook,
-      link: "https://facebook.com/",
+      link: "https://www.facebook.com/TETObra",
     },
     {
       name: "Twitter",
       Icon: FaTwitter,
       link:
-        "https://twitter.com/share?url=https%3A%2F%2Fdoe.teto.org.br%2Fdoe%2Fsingle_step&amp;via=tetobra&amp;text=Doe para a TETO Brasil!&amp;lang=pt-BR",
+        "https://twitter.com/intent/tweet?url=https%3A%2F%2Fdoe.teto.org.br%2Fdoe%2Fsingle_step&via=_henry_ns&text=Doe%20para%20a%20TETO%20Brasil!&lang=pt-BR",
     },
     {
       name: "Instagram",

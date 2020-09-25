@@ -2,6 +2,7 @@ const theme = {
   main: "#0092DD",
   background: "#F5F5F5",
   text: "#FFFFFF",
+  dark: "#232323",
   headerBgColor: "#0092DD",
   headerFontColor: "#fff",
   headerFontSize: "15px",
