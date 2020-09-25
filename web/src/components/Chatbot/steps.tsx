@@ -178,7 +178,19 @@ export default [
   },
   {
     id: "end",
-    message: "agradeçemos sua visita, volte sempre!!",
-    end: true,
+    message:
+      "Agradeço sua visita. Espero que tenha entendido melhor nossa causa e que você possa ajudar mais no futuro. Nós queremos um mundo melhor para todos :)",
+    trigger: "initChat",
+    // end: true,
+  },
+  {
+    id: "initChat",
+    options: [
+      {
+        value: 1,
+        label: "Quero recomeçar a conversa",
+        trigger: "welcome",
+      },
+    ],
   },
 ];
