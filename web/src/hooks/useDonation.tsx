@@ -15,16 +15,14 @@ interface DonationOptions {
 }
 
 interface DonationData {
-  options: DonationOptions;
-  setOptions: React.Dispatch<React.SetStateAction<DonationOptions>>;
+  options: DonationOptions | null;
+  setOptions: React.Dispatch<React.SetStateAction<DonationOptions | null>>;
 }
 
 const DonationContext = createContext<DonationData>({} as DonationData);
 
 const DonationProvider: React.FC = ({ children }) => {
-  const [options, setOptions] = useState<DonationOptions>(
-    {} as DonationOptions,
-  );
+  const [options, setOptions] = useState<DonationOptions | null>(null);
 
   return (
     <DonationContext.Provider value={{ options, setOptions }}>

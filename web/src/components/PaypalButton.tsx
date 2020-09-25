@@ -14,35 +14,37 @@ const Donation: React.FC = () => {
   const paypalRef = useRef(null);
 
   useEffect(() => {
-    window.paypal
-      .Buttons({
-        createOrder: (_: any, actions: any) => {
-          return actions.order.create({
-            purchase_units: [
-              {
-                description: options.donor.name,
-                amount: {
-                  currency_code: "USD",
-                  value: options.payment.value,
+    if (options) {
+      window.paypal
+        .Buttons({
+          createOrder: (_: any, actions: any) => {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  description: options.donor.name,
+                  amount: {
+                    currency_code: "USD",
+                    value: options.payment.value,
+                  },
                 },
-              },
-            ],
-          });
-        },
-        onApprove: async (_: any, actions: any) => {
-          const order = await actions.order.capture();
-          setPaid(true);
+              ],
+            });
+          },
+          onApprove: async (_: any, actions: any) => {
+            const order = await actions.order.capture();
+            setPaid(true);
 
-          console.log(order);
-        },
-        onError: (err: boolean) => {
-          console.warn(err);
+            console.log(order);
+          },
+          onError: (err: boolean) => {
+            console.warn(err);
 
-          setError(err);
-        },
-      })
-      .render(paypalRef.current);
-  }, [options.donor.name, options.payment.value]);
+            setError(err);
+          },
+        })
+        .render(paypalRef.current);
+    }
+  }, [options]);
 
   // If the payment has been made
   if (paid) {
@@ -57,7 +59,7 @@ const Donation: React.FC = () => {
   // Default Render
   return (
     <div>
-      <h4>{`R$ ${options.payment.value}`}</h4>
+      <h4>{`R$ ${options?.payment.value}`}</h4>
       <div ref={paypalRef} />
     </div>
   );
