@@ -168,35 +168,46 @@ export default [
     options: [
       {
         value: 1,
-        label: "Quero doar R$35,00 para ajudar milhões de latino-americanos",
-        trigger: "donation35",
+        label: "Quero doar R$10,00 para ajudar milhões de latino-americanos",
+        trigger: "donation10",
       },
       {
         value: 2,
+        label:
+          "Quero doar R$20,00 para ajudar a diminuir a desigualdade na america latina",
+        trigger: "donation20",
+      },
+      {
+        value: 3,
         label:
           "Quero doar R$50,00 para ajudar construir casas de milhares de famílias",
         trigger: "donation50",
       },
       {
-        value: 3,
+        value: 4,
         label: "Quero doar R$100,00 para mudar o futuro do mundo",
         trigger: "donation100",
       },
     ],
   },
   {
-    id: "donation100",
-    component: <PaypalButton value={100} />,
+    id: "donation10",
+    component: <PaypalButton value={10} />,
     trigger: "thanks",
   },
   {
-    id: "donation35",
-    component: <PaypalButton value={35} />,
+    id: "donation20",
+    component: <PaypalButton value={20} />,
     trigger: "thanks",
   },
   {
     id: "donation50",
     component: <PaypalButton value={50} />,
+    trigger: "thanks",
+  },
+  {
+    id: "donation100",
+    component: <PaypalButton value={100} />,
     trigger: "thanks",
   },
   {
