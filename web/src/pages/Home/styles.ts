@@ -13,4 +13,14 @@ export const Container = styled.main`
   section:first-of-type {
     margin-right: 32px;
   }
+
+  @media (max-width: 740px) {
+    flex-direction: column;
+    align-items: center;
+
+    section:first-of-type {
+      margin-right: 0;
+      margin-bottom: 32px;
+    }
+  }
 `;

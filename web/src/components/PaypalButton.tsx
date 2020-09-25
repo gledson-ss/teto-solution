@@ -56,15 +56,15 @@ const Donation: React.FC<DonationProps> = ({ value }) => {
 
   // Default Render
   return (
-    <div>
-      {paid ? <div>Payment successful.!</div> : <div ref={paypalRef} />}
+    <>
+      <div ref={paypalRef} />
       <ShowCupomModal
         isOpen={paid}
         onClose={handleClose}
         cupom={`TETO${value}`}
         discount={`${value}`}
       />
-    </div>
+    </>
   );
 };
 

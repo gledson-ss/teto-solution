@@ -9,12 +9,12 @@ export const Container = styled(Modal)`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(calc(-50% - 64px), calc(-50% - 64px));
 
-  max-height: 50vh;
+  min-height: 50vh;
   max-width: 50vw;
   width: 100%;
-  height: 100%;
+  margin: 64px;
 
   padding: 24px;
   border-radius: 10px;
