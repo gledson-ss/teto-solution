@@ -1,9 +1,8 @@
 import React from "react";
 
 import PaypalButton from "../PaypalButton";
-import { Donation } from "../PaypalButton/donation";
 
-export const Steps = [
+export default [
   {
     id: "welcome",
     message:
@@ -159,8 +158,7 @@ export const Steps = [
   },
   {
     id: "paypalComponent",
-    component: <PaypalButton donation={Donation} />,
-    // trigger: "thanks"
+    component: <PaypalButton />,
     trigger: "thanks",
   },
   {

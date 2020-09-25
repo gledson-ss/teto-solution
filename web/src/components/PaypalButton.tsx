@@ -1,27 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState, useRef } from "react";
 
+import { useDonation } from "../hooks/useDonation";
+
 declare let window: Window & typeof globalThis & { paypal: any };
 
-export interface DonationProps {
-  donation: {
-    donationType: string;
-    donor: {
-      name: string;
-      email: string;
-      number: string;
-      birthday: string;
-    };
-    payment: {
-      cpf: string;
-      value: number;
-    };
-  };
-}
-
-const Donation: React.FC<DonationProps> = ({ donation }) => {
+const Donation: React.FC = () => {
   const [paid, setPaid] = useState(false);
   const [error, setError] = useState(false);
+
+  const { options } = useDonation();
 
   const paypalRef = useRef(null);
 
@@ -32,10 +20,10 @@ const Donation: React.FC<DonationProps> = ({ donation }) => {
           return actions.order.create({
             purchase_units: [
               {
-                description: donation.donor.name,
+                description: options.donor.name,
                 amount: {
                   currency_code: "USD",
-                  value: donation.payment.value,
+                  value: options.payment.value,
                 },
               },
             ],
@@ -44,16 +32,17 @@ const Donation: React.FC<DonationProps> = ({ donation }) => {
         onApprove: async (_: any, actions: any) => {
           const order = await actions.order.capture();
           setPaid(true);
+
           console.log(order);
         },
         onError: (err: boolean) => {
-          console.error(err);
+          console.warn(err);
 
           setError(err);
         },
       })
       .render(paypalRef.current);
-  }, [donation.donor.name, donation.payment.value]);
+  }, [options.donor.name, options.payment.value]);
 
   // If the payment has been made
   if (paid) {
@@ -68,7 +57,7 @@ const Donation: React.FC<DonationProps> = ({ donation }) => {
   // Default Render
   return (
     <div>
-      <h4>{`${donation.payment.value} /- `}</h4>
+      <h4>{`R$ ${options.payment.value}`}</h4>
       <div ref={paypalRef} />
     </div>
   );

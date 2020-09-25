@@ -3,14 +3,17 @@ import ReactSimpleChatBot from "react-simple-chatbot";
 
 import { TweenMax, Power3 } from "gsap";
 
-import { Steps } from "./steps";
+import { useDonation } from "../../hooks/useDonation";
+
+import steps from "./steps";
 
 import * as S from "./styles";
 
 const Chatbot: React.FC = () => {
   const [hasVoice] = useState<boolean>(false);
-
   const containerRef = useRef(null);
+
+  const { setOptions } = useDonation();
 
   useEffect(() => {
     if (containerRef.current) {
@@ -29,7 +32,7 @@ const Chatbot: React.FC = () => {
         headerTitle="Organização TETO"
         speechSynthesis={{ enable: hasVoice, lang: "pt" }}
         style={S.content}
-        steps={Steps}
+        steps={steps}
       />
     </S.Container>
   );
