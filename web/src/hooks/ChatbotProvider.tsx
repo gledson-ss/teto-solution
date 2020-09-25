@@ -9,7 +9,7 @@ interface contextProps{
 const DataProvider = createContext({} as contextProps);
 
 const ChatbotProvider = ({children}: any) =>{
-  const [hasVoice, setHasVoice] = useState<boolean>(true);
+  const [hasVoice, setHasVoice] = useState<boolean>(false);
 
   return (
     <DataProvider.Provider value={{hasVoice, setHasVoice}}>
