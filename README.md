@@ -13,8 +13,8 @@
   </a>
 
   <!-- if your app is a website -->
-  <a href="https://https://doe-teto.netlify.app/" alt="Website https://doe-teto.netlify.app/">
-    <img src="https://img.shields.io/website-up-down-1EAE72-red/https/https://doe-teto.netlify.app/" />
+  <a href="https://doe-teto.netlify.app/" alt="Website https://doe-teto.netlify.app/">
+    <img src="https://img.shields.io/website-up-down-1EAE72-red/https/doe-teto.netlify.app/" />
   </a>
 
   <!-- License -->
@@ -22,22 +22,9 @@
     <img src="https://img.shields.io/badge/License-MIT-1EAE72.svg" />
   </a>
 
-  <!-- codefactor -->
-  <a href="https://www.codefactor.io/repository/github/gledson-ss/teto-solution" alt="CodeFactor">
-    <img src="https://www.codefactor.io/repository/github/gledson-ss/teto-solution/badge" />
-  </a>
-
-  <!-- if your app is a website deployed on Netlify -->
-  <a href="https://app.netlify.com/sites/<name>/deploys" alt="Netlify Status">
-    <img src="https://api.netlify.com/api/v1/badges/<netplify-id>/deploy-status" />
-  </a>
-
   <br/>
 
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/gledson-ss/teto-solution?color=blue">
-
-  <!-- version -->
-  <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/gledson-ss/teto-solution">
 
   <!-- GitHub repo size -->
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/gledson-ss/teto-solution">
