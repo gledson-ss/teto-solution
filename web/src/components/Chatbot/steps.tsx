@@ -33,11 +33,10 @@ export const Steps = [
       },
     ],
   },
-  // TODO diminuir os textos
   {
     id: "aboutTeto",
     message:
-      "A america latina é a região mais desigual do mundo. Mais de 104 milhões de pessoas vivem em situação de pobreza. ",
+      "A america latina é a região mais desigual do mundo. Mais de 104 milhões de pessoas vivem em situação de pobreza.",
     trigger: "aboutTeto2",
     delay: 1000,
   },
@@ -51,21 +50,21 @@ export const Steps = [
   {
     id: "aboutTeto3",
     message:
-      "Trabalhando em equipe com moradores e jovens voluntários, construímos moradias de emergência e soluções de infraestrutura, como sedes comunitárias, pontes, quadras e biodigestores.",
+      "Trabalhando com moradores e jovens voluntários, construímos moradias de emergência, sedes comunitárias, pontes, quadras e mais.",
     trigger: "aboutTeto4",
     delay: 6000,
   },
   {
     id: "aboutTeto4",
     message:
-      "Além de passar por auditorias independentes anuais, a TETO Brasil foi eleita a melhor ONG de Desenvolvimento Local do Brasil pelo Prêmio Melhores ONGs 2018 - uma iniciativa do Instituto Doar e da Rede Filantropia.",
+      "TETO Brasil foi eleita a melhor ONG de Desenvolvimento Local do Brasil pelo Prêmio Melhores ONGs 2018 - uma iniciativa do Instituto Doar e da Rede Filantropia.",
     trigger: "tetoFriend",
     delay: 6000,
   },
   {
     id: "tetoFriend",
     message:
-      "Seja um amigo da TETO. Doando um pequeno valor a cada mês vocês ajuda a teto a planejar melhor nossa atuação. Você pode ser um amigo da TETO doando um valor único e mesmo assim fazer uma enorme diferença na vida de milhões de pessoas",
+      "Doando você se torna um amigo da TETO doando e fazer uma enorme diferença na vida de milhões de pessoas. Doe pequeno valores mensais para ajudar a TETO melhorar nossa atuação.",
     trigger: "tetoFriendOptions",
     delay: 6000,
   },
@@ -104,11 +103,24 @@ export const Steps = [
     trigger: "end",
   },
   {
-    // TODO diminuir o texto
     id: "whyDonate",
     message:
-      "Nas favelas em que a TETO Brasil atua, o tamanho médio de um barraco é de 27 m² e, em 31% deles, vivem pelo menos quatro pessoas.* Mas você pode nos ajudar a transformar essa realidade! Com o apoio de nossos doadores, apenas no Brasil já construímos mais de 4 mil moradias de emergência, concluímos 50 projetos comunitários e mobilizamos mais de 70 mil voluntários**. Com a sua doação, podemos fazer ainda mais.",
+      "Nas favelas em que a TETO Brasil atua, o tamanho médio de um barraco é de 27m² onde em boa parte vivem pelo menos quatro pessoas.",
+    trigger: "whyDonate2",
+    delay: 3000,
+  },
+  {
+    id: "whyDonate2",
+    message:
+      "E você pode nos ajudar a transformar essa realidade! Com o apoio de nossos doadores, no Brasil já construímos mais de 4 mil moradias de emergência, 50 projetos comunitários e mobilizamos mais de 70 mil voluntários",
+    trigger: "whyDonate3",
+    delay: 6000,
+  },
+  {
+    id: "whyDonate3",
+    message: "Com a sua doação, podemos fazer ainda mais.",
     trigger: "askDonation",
+    delay: 1000,
   },
   {
     id: "askDonation",
