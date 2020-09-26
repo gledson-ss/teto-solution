@@ -123,5 +123,3 @@ This project is under the MIT license. See the file [LICENSE](LICENSE) for more 
 ---
 
 Build with 💙 By [Dream Team](https://github.com/henry-ns/mountbot/wiki/Authors)
-
-Based on the [readme template](https://gist.github.com/henry-ns/a00234378353d9ca43e1bfe043202192) by [Henrique Miranda](http://thehenry.dev/)
